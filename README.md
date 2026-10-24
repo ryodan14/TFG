@@ -28,3 +28,4 @@ Aplicación Android para gestionar una asociación: actividades y calendario, pa
 
 - Proyecto de TFG: las credenciales por defecto son solo para entorno local.
 - No subas datos reales de participantes ni contraseñas al repositorio.
+- Esta hecho en Android Studio en local, por eso no hay ramas creadas 
