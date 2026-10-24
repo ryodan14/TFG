@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Tfg"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".ui.slideshow.FormularioMovimientoActivity"
+            android:exported="false"
+            android:label="Nuevo Movimiento" />
+
+        <activity
+            android:name=".ui.slideshow.DetalleFacturaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.slideshow.FormularioFacturaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".MainActivity" android:exported="false" />
+        <activity android:name=".FormularioNinoActivity" android:exported="false" />
+        <activity android:name=".DetalleNinoActivity" android:exported="false" />
+        <activity android:name=".CalendarioActivity" android:exported="false" />
+        <activity android:name=".ui.AniadirEvento" android:exported="false" />
+        <activity android:name=".ui.DetalleActividad" android:exported="false" />
+
+        <activity
+            android:name=".FormularioUsuarioActivity"
+            android:exported="false"
+            android:label="Gestión de Usuario"
+            tools:ignore="DuplicateActivity" />
+
+    </application>
+</manifest>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:padding="16dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView android:id="@+id/tvTituloFormulario" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Añadir Niño" android:textSize="24sp" android:textStyle="bold" android:layout_marginBottom="16dp" android:gravity="center"/>
+
+        <EditText android:id="@+id/etFormNombre" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nombre" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormApe1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Primer Apellido" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormApe2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Segundo Apellido" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormFecha" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Fecha Nacimiento (YYYY-MM-DD)" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormColegio" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Colegio / Instituto" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormCurso" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Curso" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormIdTutor" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="ID del Tutor" android:inputType="number" android:layout_marginBottom="8dp"/>
+        <EditText android:id="@+id/etFormVinculo" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Vínculo Tutor (Ej: Padre, Madre...)" android:layout_marginBottom="16dp"/>
+
+        <Switch android:id="@+id/swFormAlergias" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="¿Tiene Alergias?" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/swFormSaleSolo" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="¿Puede salir solo?" android:layout_marginBottom="8dp"/>
+        <Switch android:id="@+id/swFormFotos" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Autorización de Fotos" android:layout_marginBottom="16dp"/>
+
+        <EditText android:id="@+id/etFormObs" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Observaciones" android:lines="3" android:gravity="top" android:layout_marginBottom="24dp"/>
+
+        <Button android:id="@+id/btnGuardarNino" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="GUARDAR DATOS" android:backgroundTint="#4CAF50"/>
+    </LinearLayout>
+</ScrollView>

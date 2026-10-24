@@ -1,0 +1,28 @@
+# SO / IDE
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/
+
+# Android / Gradle
+.gradle/
+.kotlin/
+build/
+local.properties
+*.apk
+*.aab
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Maven / Java
+target/
+dependency-reduced-pom.xml
+
+# Datos generados / sensibles
+*.log
+*.env
+pdfs/
+*.jks
+*.keystore

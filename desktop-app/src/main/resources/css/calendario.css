@@ -1,0 +1,31 @@
+.calendar-cell {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+    -fx-cursor: hand;
+}
+
+.calendar-cell:hover {
+    -fx-background-color: rgba(33, 150, 243, 0.1);
+}
+
+.calendar-cell-today {
+    -fx-background-color: rgba(255, 193, 7, 0.2);
+    -fx-border-color: #FFC107;
+    -fx-border-width: 2;
+}
+
+.calendar-cell-has-activities {
+    -fx-background-color: rgba(76, 175, 80, 0.1);
+}
+
+.calendar-day-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
+
+.calendar-activities-label {
+    -fx-text-fill: #757575;
+    -fx-font-size: 10px;
+}

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.AltaNinoController">
+
+    <VBox prefWidth="1000" spacing="25" style="-fx-padding: 30; -fx-background-color: white;">
+
+        <!-- TÍTULO -->
+        <HBox spacing="40" alignment="CENTER_LEFT" VBox.vgrow="ALWAYS">
+            <Label fx:id="lblNombreCompleto"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #212121;"
+                   text="Alta de Niño" />
+
+            <Label fx:id="lblEdadCurso"
+                   style="-fx-font-size: 16px; -fx-text-fill: #757575; "/>
+        </HBox>
+        <Separator />
+
+        <!-- CONTENEDOR HORIZONTAL: NIÑO + TUTOR -->
+        <HBox alignment="TOP_CENTER" spacing="50">
+
+            <!-- DATOS DEL NIÑO -->
+            <VBox maxWidth="700.0" prefHeight="498.0" prefWidth="700.0" spacing="15" style="-fx-background-color: #E3F2FD; -fx-padding: 20; -fx-background-radius: 8; -fx-max-width: 450;">
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1976D2;" text="Datos del Niño/a" />
+
+                <GridPane hgap="15" vgap="15">
+                    <!-- Nombre -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Nombre *:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtNombre" promptText="Nombre del niño/a" style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!-- Primer Apellido -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Primer Apellido *:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtPrimerApellido" promptText="Primer apellido" style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <!-- Segundo Apellido -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Segundo Apellido *:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtSegundoApellido" promptText="Segundo apellido" style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <!-- Fecha Nacimiento -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Fecha Nacimiento *:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <DatePicker fx:id="dpFechaNacimiento" promptText="dd/mm/aaaa" style="-fx-font-size: 13px; -fx-pref-width: 200;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <!-- Colegio/Instituto -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Colegio/Instituto *:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtColegio" promptText="Nombre del centro escolar" style="-fx-font-size: 13px; -fx-pref-width: 350;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+
+                    <!-- Curso -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Curso *:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <ComboBox fx:id="cbCurso" onAction="#onCursoSeleccionado" promptText="Seleccionar curso" style="-fx-font-size: 13px; -fx-pref-width: 200;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                    <!-- Alergias -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Alergias *:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <CheckBox fx:id="chkAlergias" style="-fx-font-size: 13px;" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+
+                    <!-- Puede Salir Solo -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Puede Salir Solo:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <CheckBox fx:id="chkPuedeSalirSolo" style="-fx-font-size: 13px;" text="(Solo aplicable 5º Primaria o superior)" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="7" />
+
+                    <!-- Autorización Fotos -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Autorización Fotos:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                    <CheckBox fx:id="chkAutorizacionFotos" style="-fx-font-size: 13px;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+                    <!-- Observaciones -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                    <TextArea fx:id="txtObservacionesNino" prefRowCount="2" promptText="Información adicional..." style="-fx-font-size: 13px; -fx-pref-width: 350;" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="9" />
+
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </VBox>
+
+            <!-- DATOS DEL TUTOR -->
+            <VBox maxWidth="700.0" prefHeight="498.0" prefWidth="700.0" spacing="15" style="-fx-background-color: #FFF3E0; -fx-padding: 20; -fx-background-radius: 8; -fx-max-width: 450;">
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #F57C00;" text="Datos del Tutor/a" />
+
+                <GridPane hgap="15" vgap="15">
+                    <!-- Nombre -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Nombre *:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <TextField fx:id="txtNombreTutor" promptText="Nombre del tutor/a" style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!-- Primer Apellido -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Primer Apellido *:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="txtPrimerApellidoTutor" promptText="Primer apellido" style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <!-- Segundo Apellido -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Segundo Apellido *:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="txtSegundoApellidoTutor" promptText="Segundo apellido" style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                    <!-- DNI -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="DNI *:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="txtDniTutor" promptText="12345678A" style="-fx-font-size: 13px; -fx-pref-width: 150;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                    <!-- Correo -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Correo *:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="txtCorreoTutor" promptText="email@ejemplo.com" style="-fx-font-size: 13px; -fx-pref-width: 300;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+
+                    <!-- Teléfono -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Teléfono *:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                    <TextField fx:id="txtTelefonoTutor" promptText="600123456" style="-fx-font-size: 13px; -fx-pref-width: 150;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+                    <!-- Dirección -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Dirección *:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                    <TextField fx:id="txtDireccionTutor" promptText="Calle, número, piso..." style="-fx-font-size: 13px; -fx-pref-width: 400;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="6" />
+
+                    <!-- Municipio -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Municipio *:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                    <TextField fx:id="txtMunicipioTutor" promptText="Santurtzi, Barakaldo..." style="-fx-font-size: 13px; -fx-pref-width: 250;" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+
+                    <!-- Código Postal -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Código Postal *:" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+                    <TextField fx:id="txtCodigoPostalTutor" promptText="48980" style="-fx-font-size: 13px; -fx-pref-width: 100;" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+
+                    <!-- Vínculo -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Vínculo *:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
+                    <ComboBox fx:id="cbVinculo" promptText="Seleccionar vínculo" style="-fx-font-size: 13px; -fx-pref-width: 200;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+
+                    <!-- Observaciones -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                    <TextArea fx:id="txtObservacionesTutor" prefRowCount="2" promptText="Información adicional..." style="-fx-font-size: 13px; -fx-pref-width: 350;" wrapText="true" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="10" />
+
+                    <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+            </VBox>
+
+        </HBox>
+
+        <!-- BOTONES -->
+        <HBox alignment="CENTER_RIGHT" spacing="15">
+            <Button onAction="#cancelar" style="-fx-background-color: #E0E0E0; -fx-text-fill: #616161; -fx-cursor: hand; -fx-padding: 12 30; -fx-font-size: 14px; -fx-background-radius: 6;" text="Cancelar" />
+            <Button onAction="#guardar" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 12 30; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 6;" text="Guardar" />
+        </HBox>
+
+    </VBox>
+
+</ScrollPane>

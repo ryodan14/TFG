@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Año: " android:textStyle="bold"/>
+            <Spinner android:id="@+id/spinnerAnio" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" Mes: " android:textStyle="bold" android:layout_marginStart="8dp"/>
+            <Spinner android:id="@+id/spinnerMes" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+            <Button android:id="@+id/btnRegistrarSalida" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ REGISTRAR" android:backgroundTint="#4CAF50" android:textColor="@android:color/white" android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            android:layout_marginBottom="16dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Resumen Mensual" android:textColor="#6200EE" android:textStyle="bold" android:textSize="18sp" android:layout_marginBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salidas Totales:"/><TextView android:id="@+id/tvTotalSalidas" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textStyle="bold"/></LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Total Ingresos:"/><TextView android:id="@+id/tvTotalIngresos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0€" android:textColor="#4CAF50" android:textStyle="bold"/></LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Total Gastos:"/><TextView android:id="@+id/tvTotalGastos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0€" android:textColor="#F44336" android:textStyle="bold"/></LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDD" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
+                <TextView android:id="@+id/tvBeneficio" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Beneficio: 0€" android:gravity="center" android:textStyle="bold" android:textSize="17sp" android:textColor="#4CAF50"/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Detalle de Salidas" android:textStyle="bold" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/rvDetalleEconomia" android:layout_width="match_parent" android:layout_height="300dp" android:background="#FFFFFF" android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Resumen Anual" android:textColor="#6200EE" android:textSize="18sp" android:textStyle="bold" android:layout_marginBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Salidas Totales Anuales:"/><TextView android:id="@+id/tvAnualSalidas" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0" android:textStyle="bold"/></LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Ingresos Totales:"/><TextView android:id="@+id/tvAnualIngresos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0€" android:textColor="#4CAF50" android:textStyle="bold"/></LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Gastos Totales:"/><TextView android:id="@+id/tvAnualGastos" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0€" android:textColor="#F44336" android:textStyle="bold"/></LinearLayout>
+                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#DDD" android:layout_marginTop="8dp" android:layout_marginBottom="8dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal"><TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="Beneficio Neto Anual:" android:textStyle="bold"/><TextView android:id="@+id/tvAnualBeneficio" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="0€" android:textColor="#4CAF50" android:textStyle="bold"/></LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</ScrollView>

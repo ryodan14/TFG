@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" style="-fx-padding: 25; -fx-background-color: white;"
+      prefWidth="550"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.ainaraaisitaldea.controller.DialogoMovimientoEconomicoController">
+
+    <!-- Título -->
+    <Label fx:id="lblTitulo"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #212121;"
+           text="Registrar Movimiento Económico" />
+
+    <Separator />
+
+    <!-- Formulario -->
+    <GridPane hgap="15" vgap="15">
+
+        <!-- Concepto con Spinner -->
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #616161;"
+               text="Concepto:"
+               GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <ComboBox fx:id="cbConcepto"
+                      promptText="Seleccionar concepto"
+                      style="-fx-font-size: 13px; -fx-pref-width: 380;"
+                      onAction="#onConceptoSeleccionado" />
+            <TextField fx:id="txtConceptoPersonalizado"
+                       managed="false"
+                       visible="false"
+                       promptText="Escribe el concepto personalizado..."
+                       style="-fx-font-size: 13px; -fx-pref-width: 380;" />
+        </VBox>
+
+        <!-- Fecha -->
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #616161;"
+               text="Fecha:"
+               GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <DatePicker fx:id="dpFecha"
+                    promptText="Seleccionar fecha"
+                    style="-fx-font-size: 13px; -fx-pref-width: 200;"
+                    GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <!-- Cantidad -->
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #616161;"
+               text="Cantidad (€):"
+               GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtCantidad"
+                   promptText="0.00"
+                   style="-fx-font-size: 13px; -fx-pref-width: 150;"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <!-- Observaciones -->
+        <Label style="-fx-font-size: 14px; -fx-text-fill: #616161;"
+               text="Observaciones:"
+               GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextArea fx:id="txtObservaciones"
+                  prefRowCount="3"
+                  promptText="Información adicional (opcional)"
+                  style="-fx-font-size: 13px; -fx-pref-width: 380;"
+                  wrapText="true"
+                  GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    </GridPane>
+
+    <!-- Botones -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button onAction="#cancelar"
+                style="-fx-background-color: #E0E0E0; -fx-text-fill: #616161; -fx-cursor: hand; -fx-padding: 10 25; -fx-font-size: 13px; -fx-background-radius: 6;"
+                text="Cancelar" />
+        <Button fx:id="btnGuardar"
+                onAction="#guardar"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 10 25; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6;"
+                text="Guardar" />
+    </HBox>
+
+</VBox>

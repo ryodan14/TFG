@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/homee"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_participantes"
+            android:icon="@drawable/participantes"
+            android:title="Participantes" />
+        <item
+            android:id="@+id/nav_hinchables"
+            android:icon="@drawable/hinchables"
+            android:title="Hinchables" />
+        <item
+            android:id="@+id/nav_facturas"
+            android:icon="@drawable/facturas"
+            android:title="Facturas" />
+        <item
+            android:id="@+id/nav_contabilidad"
+            android:icon="@drawable/contabilidad"
+            android:title="Contabilidad" />
+        <item
+            android:id="@+id/nav_usuarios"
+            android:icon="@drawable/usuarios"
+            android:title="Usuarios" />
+    </group>
+</menu>

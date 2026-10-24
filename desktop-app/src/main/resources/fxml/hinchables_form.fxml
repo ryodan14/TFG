@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox prefHeight="650" prefWidth="700" spacing="15" style="-fx-background-color: white; -fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.HinchablesFormController">
+
+    <!-- Título -->
+    <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="Registrar Salida de Hinchables" />
+
+    <!-- Información General -->
+    <VBox spacing="10" style="-fx-background-color: #F5F5F5; -fx-padding: 10; -fx-background-radius: 5;">
+        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Información General" />
+
+        <GridPane hgap="15" vgap="12">
+            <columnConstraints>
+                <ColumnConstraints minWidth="140" prefWidth="140" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="400" />
+            </columnConstraints>
+
+            <!-- Nombre/Evento -->
+            <Label text="Nombre/Evento: *" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="txtNombre" promptText="Ej: Fiestas del pueblo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+            <!-- Observaciones Generales -->
+            <Label text="Observaciones:" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                <padding><Insets top="5" /></padding>
+            </Label>
+            <TextArea fx:id="txtObservaciones" prefHeight="88.0" prefRowCount="3" prefWidth="484.0" promptText="Notas generales adicionales..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </VBox>
+
+    <!-- Selector de Días -->
+    <VBox spacing="10" style="-fx-background-color: #E3F2FD; -fx-padding: 10; -fx-background-radius: 5;">
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Días de la Salida" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnAgregarDia" onAction="#agregarDia" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 5 15; -fx-cursor: hand;" text="➕ Agregar Día" />
+        </HBox>
+
+        <!-- Lista de días -->
+        <ScrollPane fitToWidth="true" prefHeight="250" style="-fx-background-color: white;">
+            <VBox fx:id="containerDias" spacing="8" style="-fx-padding: 10;">
+                <!-- Los días se añadirán dinámicamente aquí -->
+            </VBox>
+        </ScrollPane>
+    </VBox>
+
+    <!-- Importes Totales -->
+    <VBox spacing="10" style="-fx-background-color: #FFF3E0; -fx-padding: 10; -fx-background-radius: 5;">
+        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Importes Totales" />
+
+        <GridPane hgap="15" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints minWidth="180" prefWidth="180" />
+                <ColumnConstraints hgrow="ALWAYS" minWidth="200" />
+            </columnConstraints>
+
+            <!-- Total Ingresos (editable) -->
+            <Label text="Total Ingresos:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <HBox alignment="CENTER_LEFT" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <TextField fx:id="txtTotalIngresos" promptText="0.00" style="-fx-pref-width: 150px; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="€" />
+            </HBox>
+
+            <!-- Gastos Monitores -->
+            <Label text="Gastos Monitores:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <HBox alignment="CENTER_LEFT" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <TextField fx:id="txtGastosMonitores" promptText="0.00" style="-fx-pref-width: 150px;" />
+                <Label text="€" />
+            </HBox>
+
+            <!-- Beneficio Neto -->
+            <Label style="-fx-font-weight: bold;" text="Beneficio Neto:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+            <Label fx:id="lblBeneficioNeto" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: green;" text="0.00 €" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+        </GridPane>
+    </VBox>
+
+    <!-- Botones -->
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button onAction="#guardar" prefWidth="140" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 12 25; -fx-cursor: hand; -fx-font-weight: bold; -fx-font-size: 13px;" text="Guardar" />
+        <Button onAction="#cerrar" prefWidth="140" style="-fx-background-color: #757575; -fx-text-fill: white; -fx-padding: 12 25; -fx-cursor: hand; -fx-font-size: 13px;" text="Cancelar" />
+    </HBox>
+
+</VBox>
