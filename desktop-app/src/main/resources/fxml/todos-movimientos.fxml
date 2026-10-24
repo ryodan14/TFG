@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="790.0" prefWidth="1545.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.TodosMovimientosController">
+
+    <!-- HEADER -->
+    <top>
+        <VBox style="-fx-background-color: #2196F3; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Historial Completo de Movimientos" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblTotalMovimientos" style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total: 0 movimientos" />
+                <Button onAction="#handleVolver" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: white; -fx-border-width: 3; -fx-padding: 8 15; -fx-font-weight: bold; -fx-font-size: 13;" text="VOLVER" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CONTENIDO CENTRAL -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 30;">
+
+            <!-- FILTROS -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="Filtros" />
+
+                <GridPane hgap="15" vgap="15">
+                    <!-- Fecha Desde -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Desde:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <DatePicker fx:id="dpFechaDesde" promptText="Fecha inicio" style="-fx-font-size: 13px; -fx-pref-width: 180;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <!-- Fecha Hasta -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Hasta:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <DatePicker fx:id="dpFechaHasta" promptText="Fecha fin" style="-fx-font-size: 13px; -fx-pref-width: 180;" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                    <!-- Tipo -->
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Tipo:" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                    <ComboBox fx:id="cbFiltroTipo" promptText="Todos" style="-fx-font-size: 13px; -fx-pref-width: 150;" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+
+                    <!-- Botones aplicar/limpiar -->
+                    <HBox alignment="CENTER_LEFT" spacing="15" GridPane.columnIndex="6" GridPane.rowIndex="0">
+                        <Button onAction="#aplicarFiltros"
+                                style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand;
+                   -fx-padding: 8 20; -fx-font-size: 12px; -fx-background-radius: 6;"
+                                text="Aplicar" />
+
+                        <Button onAction="#limpiarFiltros"
+                                style="-fx-background-color: #E0E0E0; -fx-text-fill: #616161; -fx-cursor: hand;
+                   -fx-padding: 8 20; -fx-font-size: 12px; -fx-background-radius: 6;"
+                                text="Limpiar" />
+                    </HBox>
+
+                    <!-- Espaciador que empuja el Excel -->
+                    <Region GridPane.columnIndex="7" GridPane.rowIndex="0" HBox.hgrow="ALWAYS" />
+
+                    <!-- Botón Excel a la derecha -->
+                    <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="8" GridPane.rowIndex="0">
+                        <Button onAction="#exportarExcel"
+                                style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;
+                   -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;"
+                                text="Exportar Excel" />
+                    </HBox>
+
+               <columnConstraints>
+                   <ColumnConstraints />
+                   <ColumnConstraints />
+                   <ColumnConstraints />
+                   <ColumnConstraints />
+                   <ColumnConstraints />
+                   <ColumnConstraints />
+
+                   <!-- ESTA ES LA CLAVE: columna expansible -->
+                   <ColumnConstraints hgrow="ALWAYS" />
+
+                   <!-- columna del botón Excel -->
+                   <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+                </GridPane>
+
+                <!-- Búsqueda por texto -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161;" text="Buscar:" />
+                    <TextField fx:id="txtBuscar" promptText="Buscar por concepto..." style="-fx-font-size: 13px; -fx-pref-width: 400;" />
+                    <Button onAction="#buscar" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 20; -fx-font-size: 12px; -fx-background-radius: 6;" text="🔍 Buscar" />
+                </HBox>
+            </VBox>
+
+            <!-- TABLA -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="Últimos Movimientos" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button onAction="#eliminarMovimientoSeleccionado" style="-fx-background-color: #FF5252; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;" text="Eliminar" />
+                    <Button onAction="#refrescarDatos" style="-fx-background-color: #E0E0E0; -fx-text-fill: #616161; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;" text="🔄 Actualizar" />
+                </HBox>
+
+                <TableView fx:id="tablaMovimientos" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
+                        <TableColumn fx:id="colTipo" prefWidth="120" text="Tipo" />
+                        <TableColumn fx:id="colConcepto" prefWidth="550" text="Concepto" />
+                        <TableColumn fx:id="colCantidad" prefWidth="150" text="Cantidad" />
+                        <TableColumn fx:id="colObservaciones" prefWidth="320" text="Observaciones" />
+                    </columns>
+                </TableView>
+
+                <!-- Resumen -->
+                <HBox alignment="CENTER" spacing="30">
+                    <VBox alignment="CENTER" spacing="5">
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #757575;" text="Total Ingresos:" />
+                        <Label fx:id="lblTotalIngresos" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="0,00 €" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="5">
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #757575;" text="Total Gastos:" />
+                        <Label fx:id="lblTotalGastos" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #F44336;" text="0,00 €" />
+                    </VBox>
+
+                    <VBox alignment="CENTER" spacing="5">
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #757575;" text="Balance:" />
+                        <Label fx:id="lblBalance" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="0,00 €" />
+                    </VBox>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane prefHeight="790.0" prefWidth="1545.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.DashboardController">
+
+    <!-- HEADER -->
+    <top>
+        <VBox style="-fx-background-color: #2196F3; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <ImageView fitHeight="90" fitWidth="90" preserveRatio="true">
+                    <image>
+                        <Image url="@/images/ainara.png" />
+                    </image>
+                </ImageView>
+                <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Ainara Aisi Taldea" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblFechaHoy" style="-fx-text-fill: white; -fx-font-size: 14px;" />
+                <Label fx:id="lblBienvenida" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" />
+                <Button onAction="#cerrarSesion" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: white; -fx-border-width: 3; -fx-padding: 8 15; -fx-font-weight: bold; -fx-font-size: 14;" text="Cerrar Sesión" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- ACCESOS DIRECTOS A LA IZQUIERDA -->
+    <left>
+        <VBox spacing="20" style="-fx-padding: 25;">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Accesos directos" />
+
+            <VBox spacing="12">
+
+                <!-- GMAIL -->
+                <VBox onMouseClicked="#abrirGmail" spacing="5" style="-fx-background-color: white; -fx-background-radius: 12;              -fx-padding: 10; -fx-alignment: CENTER;              -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 6, 0, 0, 2);              -fx-cursor: hand;">
+
+                    <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                        <image>
+                            <Image url="@/images/gmail.png" />
+                        </image>
+                    </ImageView>
+
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Gmail" />
+                </VBox>
+
+
+
+                <!-- ChatGPT -->
+                <VBox onMouseClicked="#abrirChatGPT" style="-fx-background-color: white; -fx-background-radius: 12;                          -fx-padding: 10; -fx-alignment: CENTER;                          -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 6, 0, 0, 2);                          -fx-cursor: hand;">
+
+                    <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                        <image>
+                            <!-- RUTA LOGO CHATGPT -->
+                            <Image url="@/images/chatgpt.png" />
+                        </image>
+                    </ImageView>
+
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="ChatGPT" />
+                </VBox>
+
+
+                <!-- Drive -->
+                <VBox onMouseClicked="#abrirDrive" style="-fx-background-color: white; -fx-background-radius: 12;                          -fx-padding: 10; -fx-alignment: CENTER;                          -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 6, 0, 0, 2);                          -fx-cursor: hand;">
+
+                    <ImageView fitHeight="40" fitWidth="40" preserveRatio="true">
+                        <image>
+                            <!-- RUTA LOGO DRIVE -->
+                            <Image url="@/images/drive.png" />
+                        </image>
+                    </ImageView>
+
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Drive" />
+                </VBox>
+
+
+                <!-- Euskadi -->
+                <VBox onMouseClicked="#abrirSedeEuskadi" style="-fx-background-color: white; -fx-background-radius: 12;                          -fx-padding: 10; -fx-alignment: CENTER;                          -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 6, 0, 0, 2);                          -fx-cursor: hand;">
+
+                    <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
+                        <image>
+                            <!-- RUTA LOGO EUSKADI -->
+                            <Image url="@/images/euskadi.png" />
+                        </image>
+                    </ImageView>
+
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Sede Euskadi" />
+                </VBox>
+
+
+                <!-- Bizkaia -->
+                <VBox onMouseClicked="#abrirSedeBizkaia" style="-fx-background-color: white; -fx-background-radius: 12;                          -fx-padding: 10; -fx-alignment: CENTER;                          -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 6, 0, 0, 2);                          -fx-cursor: hand;">
+
+                    <ImageView fitHeight="70" fitWidth="70" preserveRatio="true">
+                        <image>
+                            <!-- RUTA LOGO BIZKAIA -->
+                            <Image url="@/images/bizkaia.png" />
+                        </image>
+                    </ImageView>
+
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Sede Bizkaia" />
+                </VBox>
+
+            </VBox>
+        </VBox>
+    </left>
+
+
+    <!-- CONTENIDO CENTRAL -->
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;">
+            <VBox spacing="15" style="-fx-padding: 15;">
+
+                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="Panel de Control" />
+
+                <!-- SECCIONES EN ORDEN -->
+
+                <GridPane hgap="20" vgap="20">
+
+                    <!-- PARTICIPANTES -->
+                    <VBox alignment="CENTER" onMouseClicked="#abrirNinos" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2); -fx-cursor: hand;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label style="-fx-font-size: 40px;" text="📋" />
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="PARTICIPANTES" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- HINCHABLES -->
+                    <VBox alignment="CENTER" onMouseClicked="#abrirHinchables" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2); -fx-cursor: hand;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label style="-fx-font-size: 40px;" text="🏰" />
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="HINCHABLES" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- FACTURAS / PRESUPUESTOS -->
+                    <VBox alignment="CENTER" onMouseClicked="#abrirFacturas" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2); -fx-cursor: hand;" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label style="-fx-font-size: 40px;" text="📄" />
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="FACTURAS" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- CONTABILIDAD -->
+                    <VBox alignment="CENTER" onMouseClicked="#abrirEconomiaGlobal" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2); -fx-cursor: hand;" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label style="-fx-font-size: 40px;" text="💰" />
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="CONTABILIDAD" />
+                        </HBox>
+                    </VBox>
+
+                    <!-- USUARIOS -->
+                    <VBox alignment="CENTER" onMouseClicked="#abrirUsuarios" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2); -fx-cursor: hand;" GridPane.columnIndex="4" GridPane.rowIndex="0">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label style="-fx-font-size: 40px;" text="👥" />
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="USUARIOS" />
+                        </HBox>
+                    </VBox>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints />
+               </rowConstraints>
+
+                </GridPane>
+
+                <!-- CALENDARIO + FOTOS (RESPONSIVE) -->
+                <HBox spacing="25" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                    <!-- 📅 PRÓXIMAS ACTIVIDADES -->
+                    <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                        <HBox alignment="CENTER_LEFT" spacing="15">
+                            <Label style="-fx-font-size: 40px;" text="📅" />
+                            <Label style="-fx-font-size:20px; -fx-font-weight:bold;" text="PRÓXIMAS ACTIVIDADES" />
+                            <Region HBox.hgrow="ALWAYS" />
+                            <Button onAction="#abrirCalendario" style="-fx-background-color: #FF5722; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 15; -fx-background-radius: 6; -fx-font-size: 11px;" text="Ver Calendario" />
+                        </HBox>
+                        <Separator />
+                        <ListView fx:id="listProximasActividades" style="-fx-background-color: transparent; -fx-border-color: transparent;" VBox.vgrow="ALWAYS" />
+                    </VBox>
+
+                    <!-- 🖼️ FOTOS -->
+                    <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                        <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="FOTOS" />
+                        <Separator />
+                        <FlowPane fx:id="panelFotos" hgap="15" style="-fx-background-color: transparent;" vgap="15" VBox.vgrow="ALWAYS" />
+                    </VBox>
+                </HBox>
+
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20" styleClass="root" stylesheets="@../css/login.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.LoginController">
+
+    <padding>
+        <Insets bottom="50" left="50" right="50" top="50" />
+    </padding>
+
+    <VBox alignment="CENTER" spacing="30" styleClass="login-box">
+        <padding>
+            <Insets bottom="40" left="40" right="40" top="40" />
+        </padding>
+      <ImageView fitHeight="161.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/ainara.png" />
+         </image>
+      </ImageView>
+
+        <!-- Título -->
+        <Label styleClass="title" text="Ainara Aisi Taldea">
+            <font>
+                <Font name="Reem Kufi Bold" size="24.0" />
+            </font>
+        </Label>
+
+        <!-- Campos de entrada -->
+        <VBox alignment="CENTER" prefWidth="300" spacing="15">
+
+            <VBox spacing="5">
+                <Label styleClass="label" text="Usuario:" />
+                <TextField fx:id="txtUsername" promptText="Ingrese su usuario" styleClass="text-field" />
+            </VBox>
+
+            <VBox spacing="5">
+                <Label styleClass="label" text="Contraseña:" />
+                <PasswordField fx:id="txtPassword" onAction="#handleLogin" promptText="Ingrese su contraseña" styleClass="text-field" />
+            </VBox>
+
+        </VBox>
+
+        <!-- Botón de login -->
+        <Button onAction="#handleLogin" prefHeight="53.0" prefWidth="200" styleClass="btn-login" text="Iniciar Sesión">
+            <font>
+                <Font name="System Bold" size="14" />
+            </font>
+        </Button>
+
+    </VBox>
+
+</VBox>

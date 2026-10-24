@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="800.0" prefWidth="1600.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.NinosController">
+
+    <!-- HEADER -->
+    <top>
+        <VBox style="-fx-background-color: #2196F3; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label style="-fx-text-fill: white; -fx-font-size: 24px; -fx-font-weight: bold;" text="Gestión de Participantes" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="lblTotalNinos" style="-fx-text-fill: white; -fx-font-size: 14px;" text="Total: 0 niños" />
+                <Button onAction="#handleVolver" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: white; -fx-border-width: 3; -fx-padding: 8 15; -fx-font-weight: bold; -fx-font-size: 13;" text="VOLVER" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CONTENIDO -->
+    <center>
+        <VBox spacing="20" style="-fx-padding: 30;">
+
+            <!-- FILTROS Y ACCIONES -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+
+                <!-- Checkboxes de tipo de actividad -->
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #424242;" text="Tipo de Actividad:" />
+                    <CheckBox fx:id="chkLudoteka" style="-fx-font-size: 13px;" text="Ludoteka (1º-5º Primaria)" />
+                    <CheckBox fx:id="chkGazteLokala" style="-fx-font-size: 13px;" text="Gazte Lokala (6º Primaria, 1º ESO)" />
+                    <CheckBox fx:id="chkGazteLokala2" style="-fx-font-size: 13px;" text="Gazte Lokala 2.0 (2º - 4º ESO)" />
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <!-- Botones de acción principales -->
+                    <Button onAction="#abrirFormularioAlta" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 10 20; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-radius: 6;" text="➕ Nuevo Niño" />
+                    <Button fx:id="btnEliminar" onAction="#eliminarNinoSeleccionado" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6; -fx-font-weight: bold;" text="❌ Eliminar">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Button>
+                    <Separator orientation="VERTICAL" />
+                    <Button onAction="#importar" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;" text="📥 Importar" />
+                    <Button onAction="#exportar" style="-fx-background-color: #009688; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;" text="📤 Exportar" />
+                </HBox>
+
+                <!-- Filtro por curso y búsqueda -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161; -fx-font-weight: bold;" text="Curso:" />
+                    <ComboBox fx:id="cbFiltroCurso" promptText="Todos los cursos" style="-fx-font-size: 13px; -fx-pref-width: 200;" />
+
+                    <Separator orientation="VERTICAL" />
+
+                    <Label style="-fx-font-size: 13px; -fx-text-fill: #616161; -fx-font-weight: bold;" text="Buscar:" />
+                    <TextField fx:id="txtBuscar" promptText="Nombre o apellidos..." style="-fx-font-size: 13px; -fx-pref-width: 250;" />
+
+                    <Button onAction="#buscar" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 20; -fx-font-size: 13px; -fx-background-radius: 6; -fx-font-weight: bold;" text="🔍 Buscar" />
+
+                    <Button onAction="#limpiarFiltros" style="-fx-background-color: #9E9E9E; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 20; -fx-font-size: 13px; -fx-background-radius: 6;" text="Limpiar" />
+
+                    <Region HBox.hgrow="ALWAYS" />
+                </HBox>
+            </VBox>
+
+            <!-- TABLA -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);" VBox.vgrow="ALWAYS">
+
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="Listado de Niños" />
+
+                <TableView fx:id="tablaNinos" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNombre" prefWidth="100" text="Nombre" />
+                        <TableColumn fx:id="colPrimerApellido" prefWidth="100" text="1º Apellido" />
+                        <TableColumn fx:id="colSegundoApellido" prefWidth="100" text="2º Apellido" />
+                        <TableColumn fx:id="colFechaNacimiento" prefWidth="110" text="Fecha Nac." />
+                        <TableColumn fx:id="colEdad" prefWidth="60" text="Edad" />
+                        <TableColumn fx:id="colColegio" prefWidth="180" text="Colegio/Instituto" />
+                        <TableColumn fx:id="colCurso" prefWidth="100" text="Curso" />
+                        <TableColumn fx:id="colAlergias" prefWidth="70" text="Alergias" />
+                        <TableColumn fx:id="colSalirSolo" prefWidth="70" text="Salir Solo" />
+                        <TableColumn fx:id="colFotos" prefWidth="60" text="Fotos" />
+                        <TableColumn fx:id="colNombreTutor" prefWidth="150" text="Nombre Tutor" />
+                        <TableColumn fx:id="colTelefonoTutor" prefWidth="110" text="Teléfono Tutor" />
+                        <TableColumn fx:id="colObservaciones" prefWidth="200" text="Observaciones" />
+                    </columns>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

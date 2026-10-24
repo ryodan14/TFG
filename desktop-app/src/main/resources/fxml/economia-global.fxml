@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="790.0" prefWidth="1545.0" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.ContabilidadGlobalController">
+
+    <!-- HEADER -->
+    <top>
+        <VBox style="-fx-background-color: #2196F3; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Contabilidad Global" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#volverDashboard" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: white; -fx-border-width: 3; -fx-padding: 8 15; -fx-font-weight: bold; -fx-font-size: 13;" text="VOLVER" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CONTENIDO -->
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: transparent; -fx-background: transparent;">
+            <VBox spacing="25" style="-fx-padding: 30;">
+
+                <!-- RESUMEN FINANCIERO -->
+                <VBox spacing="20" style="-fx-padding: 0;">
+                    <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="Resumen Financiero" />
+
+                    <!-- FILA ÚNICA: 3 tarjetas + mini gráfico compacto -->
+                    <HBox alignment="CENTER_LEFT" spacing="50">
+
+                        <!-- Tarjeta: Ingresos -->
+                        <VBox spacing="6" style="-fx-background-color: white; -fx-padding: 16; -fx-background-radius: 14;                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.07), 8, 0, 0, 2);                      -fx-pref-width: 160; -fx-alignment: CENTER_LEFT;">
+                            <Label style="-fx-font-size: 11px; -fx-text-fill: #757575; -fx-font-weight: bold;" text="INGRESOS" />
+                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                <Label style="-fx-font-size: 20px;" text="📈" />
+                                <Label fx:id="lblIngresosTotal" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="0,00 €" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Tarjeta: Gastos -->
+                        <VBox spacing="6" style="-fx-background-color: white; -fx-padding: 16; -fx-background-radius: 14;                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.07), 8, 0, 0, 2);                      -fx-pref-width: 160; -fx-alignment: CENTER_LEFT;">
+                            <Label style="-fx-font-size: 11px; -fx-text-fill: #757575; -fx-font-weight: bold;" text="GASTOS" />
+                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                <Label style="-fx-font-size: 20px;" text="📉" />
+                                <Label fx:id="lblGastosTotal" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #F44336;" text="0,00 €" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- Tarjeta: Beneficio -->
+                        <VBox spacing="6" style="-fx-background-color: white; -fx-padding: 16; -fx-background-radius: 14;                      -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.07), 8, 0, 0, 2);                      -fx-pref-width: 160; -fx-alignment: CENTER_LEFT;">
+                            <Label style="-fx-font-size: 11px; -fx-text-fill: #757575; -fx-font-weight: bold;" text="BENEFICIO" />
+                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                <Label style="-fx-font-size: 20px;" text="💰" />
+                                <Label fx:id="lblBeneficioNeto" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="0,00 €" />
+                            </HBox>
+                        </VBox>
+
+                        <!-- ▼▼▼ MINI GRÁFICO COMPACTO (2 barras pequeñas) ▼▼▼ -->
+                        <VBox alignment="CENTER_LEFT" spacing="4" style="-fx-padding: 0; -fx-max-width: 800;">
+                            <!-- Ingresos -->
+                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                <ProgressBar fx:id="barraIngresos" prefHeight="30" prefWidth="500" progress="0" style="-fx-accent: #4CAF50; -fx-background-color: #E8F5E9;" />
+                                <Label fx:id="lblIngresosGrafico" style="-fx-font-size: 12px; -fx-text-fill: #4CAF50; -fx-font-weight: bold;" text="0,00 €" />
+                            </HBox>
+
+                            <!-- Gastos -->
+                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                <ProgressBar fx:id="barraGastos" prefHeight="30" prefWidth="500" progress="0" style="-fx-accent: #F44336; -fx-background-color: #FFEBEE;" />
+                                <Label fx:id="lblGastosGrafico" style="-fx-font-size: 12px; -fx-text-fill: #F44336; -fx-font-weight: bold;" text="0,00 €" />
+                            </HBox>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+
+                <!-- ACCIONES RÁPIDAS -->
+                <HBox spacing="15">
+                    <Button onAction="#registrarIngreso" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 15 30; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8;" text="+ Registrar Ingreso" />
+                    <Button onAction="#registrarGasto" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 15 30; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 8;" text="- Registrar Gasto" />
+                    <Button onAction="#verTodosMovimientos" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 15 30; -fx-font-size: 14px; -fx-background-radius: 8;" text="Ver Todos los Movimientos" />
+                </HBox>
+
+                <!-- ÚLTIMOS MOVIMIENTOS -->
+                <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 25; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #212121;" text="Últimos Movimientos" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button onAction="#eliminarMovimientoSeleccionado" style="-fx-background-color: #FF5252; -fx-text-fill: white; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;" text="Eliminar" />
+                        <Button onAction="#refrescarDatos" style="-fx-background-color: #E0E0E0; -fx-text-fill: #616161; -fx-cursor: hand; -fx-padding: 8 15; -fx-font-size: 12px; -fx-background-radius: 6;" text="🔄 Actualizar" />
+                    </HBox>
+
+                    <TableView fx:id="tablaMovimientos" prefHeight="337.0" prefWidth="1275.0" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colFecha" prefWidth="120" text="Fecha" />
+                            <TableColumn fx:id="colTipo" prefWidth="120" text="Tipo" />
+                            <TableColumn fx:id="colConcepto" prefWidth="550" text="Concepto" />
+                            <TableColumn fx:id="colCantidad" prefWidth="150" text="Cantidad" />
+                            <TableColumn fx:id="colObservaciones" prefWidth="300" text="Observaciones" />
+                        </columns>
+                    </TableView>
+                </VBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="790.0" prefWidth="1545.0" stylesheets="/css/calendario.css" style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ainaraaisitaldea.controller.CalendarioController">
+
+    <!-- HEADER -->
+    <top>
+        <VBox style="-fx-background-color: #2196F3; -fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="20">
+                <Label style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" text="Calendario de Actividades" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Button onAction="#volverDashboard" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-cursor: hand; -fx-border-color: white; -fx-border-width: 3; -fx-padding: 8 15; -fx-font-weight: bold; -fx-font-size: 13;" text="VOLVER" />
+            </HBox>
+
+        </VBox>
+    </top>
+
+    <!-- CONTENIDO -->
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;">
+
+            <!-- Controles superiores -->
+            <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;">
+
+                <!-- Botones de vista -->
+                <Button fx:id="btnVistaMensual" onAction="#cambiarAVistaMensual" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-weight: bold;" text="Vista Mensual" />
+
+                <Button fx:id="btnVistaSemanal" onAction="#cambiarAVistaSemanal" style="-fx-background-color: white; -fx-text-fill: #2196F3; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-weight: bold; -fx-border-color: #2196F3; -fx-border-width: 2;" text="Vista Semanal" />
+
+                <Separator orientation="VERTICAL" />
+
+                <!-- Navegación -->
+                <Button onAction="#mesAnterior" style="-fx-font-size: 16px; -fx-pref-width: 40; -fx-pref-height: 40; -fx-cursor: hand;" text="◀" />
+
+                <Label fx:id="lblMesAnio" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-min-width: 300; -fx-alignment: center;" text="Mes Año" />
+
+                <Button onAction="#mesSiguiente" style="-fx-font-size: 16px; -fx-pref-width: 40; -fx-pref-height: 40; -fx-cursor: hand;" text="▶" />
+
+                <Region HBox.hgrow="ALWAYS" />
+
+                <Button fx:id="btnNuevaActividad" onAction="#nuevaActividad" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-size: 14px; -fx-font-weight: bold;" text="➕ Nueva Actividad" />
+
+            </HBox>
+
+            <!-- VISTA MENSUAL -->
+            <VBox fx:id="paneVistaMensual" spacing="15" VBox.vgrow="ALWAYS">
+
+                <!-- Calendario -->
+                <GridPane fx:id="gridCalendario" hgap="5" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;" vgap="5" />
+
+                <!-- Panel de actividades del día seleccionado -->
+                <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;">
+                    <Label fx:id="lblDiaSeleccionado" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Actividades del Día Seleccionado" />
+
+                    <ListView fx:id="listActividadesDia" prefHeight="150" style="-fx-border-color: #E0E0E0; -fx-border-radius: 5;" />
+
+                    <HBox spacing="10">
+                        <Button fx:id="btnEditarActividad" onAction="#editarActividad" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-padding: 8 15; -fx-cursor: hand;" text="Editar" />
+
+                        <Button fx:id="btnEliminarActividad" onAction="#eliminarActividad" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-padding: 8 15; -fx-cursor: hand;" text="Eliminar" />
+                    </HBox>
+                </VBox>
+
+            </VBox>
+
+            <!-- VISTA SEMANAL -->
+            <VBox fx:id="paneVistaSemanal" managed="false" spacing="15" visible="false" VBox.vgrow="ALWAYS">
+
+                <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 5;" VBox.vgrow="ALWAYS">
+                    <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;" text="📋 Actividades de la Semana" />
+
+                    <ListView fx:id="listActividadesSemana" style="-fx-border-color: #E0E0E0; -fx-border-radius: 5; -fx-font-family: 'Courier New';" VBox.vgrow="ALWAYS" />
+                </VBox>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>
